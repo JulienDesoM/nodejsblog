@@ -1,6 +1,7 @@
 // Posts API
 
 const express = require('express');
+const { Post } = require('../db');
 
 const app = express();
 
@@ -12,7 +13,7 @@ const app = express();
 app.get('', (req, res) => {
   // res.end() ferme la chaîne de traitement, status 204 => 204 NO CONTENT
   //  Ceci est une réponse vide, à remplacer par votre implémentation.
-  res.status(204).end();
+  res.send("Liste des posts")
 });
 
 // Récupérer le contenu d'un seul BlogPost

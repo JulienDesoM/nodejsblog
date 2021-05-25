@@ -5,13 +5,13 @@ const { sequelize } = require('../sequelize');
 class Post extends Model {}
 
 Post.init({
-  posttitle: {
+  title: {
     type: DataTypes.STRING,
   },
-  postcontent: {
+  content: {
     type: DataTypes.TEXT
   },
-  postdate: {
+  date: {
     type: DataTypes.DATE
   }
   // propriétés des objets Post

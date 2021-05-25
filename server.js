@@ -6,6 +6,7 @@ sequelize.sync({ alter: true }).then(() => {
   app.listen(8080, () => {
     console.log("Server is ready !");
   });
+
 }).catch((err) => {
   console.error(err);
 });

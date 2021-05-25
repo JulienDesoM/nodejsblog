@@ -8,13 +8,13 @@ User.init({
   username: {
     type: DataTypes.STRING,
   },
-  usermail: {
+  mail: {
     type: DataTypes.STRING
   },
-  userpassword : {
+  password : {
     type: DataTypes.STRING,
   },
-  userrole: {
+  role: {
     type: DataTypes.INTEGER
   }
 }, {

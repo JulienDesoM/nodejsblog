@@ -5,10 +5,10 @@ const { sequelize } = require('../sequelize');
 class Comment extends Model {}
 
 Comment.init({
-  commentcontent: {
+  content: {
     type: DataTypes.STRING,
   },
-  commentdate: {
+  date: {
     type: DataTypes.STRING
   }
   }, {

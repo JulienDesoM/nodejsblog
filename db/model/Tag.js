@@ -5,7 +5,7 @@ const { sequelize } = require('../sequelize');
 class Tag extends Model {}
 
 Tag.init({
-  tagtitle: {
+  title: {
     type: DataTypes.STRING,
   }
 },{
