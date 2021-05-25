@@ -10,6 +10,10 @@ Comment.init({
   },
   commentdate: {
     type: DataTypes.STRING
-  }});
+  }
+  }, {
+    sequelize,
+    modelName: 'Comment',
+  });
 
 module.exports = { Comment };
