@@ -1,9 +1,11 @@
 // Posts API
 
 const express = require('express');
-const { Post } = require('../db');
+const { Post, User } = require('../db');
 
 const app = express();
+
+app.use(express.json());
 
 // écrire l'API posts ici :-)
 // l'API posts est montée sur /posts
@@ -32,9 +34,12 @@ app.get('/:title', async (req, res) => {
 app.post('', async (req, res, next) => {
   console.log(req.body);
   try {
-      const post = await Post.create(req.body);
+      const post = new Post(req.body);
+      post.setUser(1);
+      await post.save();
       res.status(201).json(post);
   } catch(err) {
+      console.log(err);
       next(err);
   }
 })
