@@ -41,6 +41,18 @@ app.put('/:id', async (req, res, next) => {
         res.status(200).json(user)
     }
 })
+
+app.delete('/:id', async (req, res , next) => {
+    const { id } = req.params;
+    const user = await User.findByPk(id);
+    if(!user){
+        res.status(404).json({ message: "Not found" });
+    } else  {
+        await user.destroy();
+        res.status(204).end();
+        
+    }
+})
 // écrire l'API users ici :-)
 
 module.exports = app;

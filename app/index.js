@@ -2,7 +2,7 @@ const express = require('express');
 const { User } = require('../db');
 
 const app = express();
-
+/*
 app.use((req, res, next) => {
   // middleware d'authentification
   //  header : Authorization au format Bearer avec le JWT
@@ -17,6 +17,7 @@ app.use((req, res, next) => {
 
   //  ===> Il y a donc un 2e middleware à injecter dans les contrôleurs requérant l'authentification
 });
+*/
 
 // (/route,    (fichier))
 app.use('/users', require('./users'));
@@ -24,7 +25,7 @@ app.use('/posts', require('./posts'));
 app.use('/comments', require('./comments'));
 app.use('/tags', require('./tags'));
 
-app.use('/session', require('./session'));
+// app.use('/session', require('./session'));
 
 
 app.get('/', (req, res, next) => {
