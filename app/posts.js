@@ -10,18 +10,33 @@ const app = express();
 //  => ici, l'URI '/' correspondra à /posts/ et l'URI '' correspondra à '/posts'
 
 // Lister tous les BlogPost
-app.get('', (req, res) => {
-  // res.end() ferme la chaîne de traitement, status 204 => 204 NO CONTENT
-  //  Ceci est une réponse vide, à remplacer par votre implémentation.
-  res.send("Liste des posts")
-});
+app.get('', async (req, res) => {
+  const posts = await Post.findAll();
+  res.json(posts);
+})
 
 // Récupérer le contenu d'un seul BlogPost
-app.get('/:postid', (req, res, next) => {
-  const { postid } = req.params;
-  // ici, la variable postid contient la valeur passée dans l'URI
-  //    /posts/123  => postid = 123;
-  res.status(204).end();
+app.get('/:id', async (req, res) => {
+  const { id } = req.params;
+  const post = await Post.findByPk(id);
+  res.json(post);
+})
+
+app.get('/:title', async (req, res) => {
+  const { title } = req.params;
+  const post = await Post.findOne(title);
+  res.json(post);
+})
+
+
+app.post('', async (req, res, next) => {
+  console.log(req.body);
+  try {
+      const post = await Post.create(req.body);
+      res.status(201).json(post);
+  } catch(err) {
+      next(err);
+  }
 })
 
 module.exports = app;
