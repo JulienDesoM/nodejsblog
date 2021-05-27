@@ -18,7 +18,6 @@ const signature = crypto.createHmac('sha256', jwtSecret).update(encodedHeader + 
 
 const jwt = `${encodedHeader}.${encodedPayload}.${signature}`
 */
-
 User.hasMany(Comment);
 Comment.belongsTo(User);
 User.hasMany(Post);
